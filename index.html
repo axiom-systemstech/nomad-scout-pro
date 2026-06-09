@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+   <link rel="icon" type="image/png" href="assets/favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nomad-Scout PRO | OSINT Soberano</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+    :root[data-theme="dark"] {
+        --bg-color: #050608;
+        --surface-color: rgba(13, 15, 22, 0.96);
+        --text-main: #F5F6F8;
+        --text-muted: #8E919A;
+        --accent-glow-1: #00ff66;
+        --accent-glow-2: #00e5ff;
+        --border-color: rgba(255, 255, 255, 0.07);
+        --code-bg: #0A0C12;
+    }
+    :root[data-theme="light"] {
+        --bg-color: #F4F6F9;
+        --surface-color: rgba(255, 255, 255, 0.94);
+        --text-main: #12141C;
+        --text-muted: #626673;
+        --accent-glow-1: #00cc52;
+        --accent-glow-2: #00b8cc;
+        --border-color: rgba(0, 0, 0, 0.08);
+        --code-bg: #EAEFF5;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        background-color: var(--bg-color);
+        color: var(--text-main);
+        font-family: 'Inter', sans-serif;
+        transition: background-color 0.5s ease;
+    }
+    .background-blob-1, .background-blob-2 {
+        position: fixed; width: 500px; height: 500px; border-radius: 50%;
+        pointer-events: none; z-index: 1;
+    }
+    .background-blob-1 { top: 20%; left: 10%; background: radial-gradient(circle, var(--accent-glow-1) 0%, transparent 65%); opacity: 0.18; }
+    .background-blob-2 { top: 40%; right: 10%; background: radial-gradient(circle, var(--accent-glow-2) 0%, transparent 65%); opacity: 0.15; }
+    header { max-width: 1100px; margin: 0 auto; padding: 40px 24px; display: flex; justify-content: space-between; position: relative; z-index: 10; }
+    .logo { font-weight: 600; font-size: 13px; letter-spacing: 0.25em; text-transform: uppercase; }
+    .theme-toggle { background: none; border: 1px solid var(--border-color); color: var(--text-main); padding: 8px 16px; font-size: 11px; text-transform: uppercase; cursor: pointer; border-radius: 20px; }
+    main { max-width: 900px; margin: auto; padding: 20px 24px 80px; text-align: center; position: relative; z-index: 5; }
+    h1 { font-family: 'Playfair Display', serif; font-size: 52px; margin-bottom: 24px; }
+    .subtitle { font-size: 17px; color: var(--text-muted); margin-bottom: 48px; }
+    .price { font-size: 48px; color: var(--accent-glow-1); font-weight: 600; }
+    .price small { font-size: 16px; color: var(--text-muted); }
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 60px 0; text-align: left; }
+    .feature-card { background-color: var(--code-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 24px; }
+    .feature-card i { font-size: 28px; color: var(--accent-glow-2); margin-bottom: 12px; display: block; }
+    .feature-card h3 { font-size: 16px; margin-bottom: 8px; }
+    .feature-card p { font-size: 13px; color: var(--text-muted); }
+    .btn { display: inline-block; background: linear-gradient(135deg, var(--accent-glow-1), var(--accent-glow-2)); color: #050608; padding: 18px 36px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; border-radius: 8px; text-decoration: none; margin: 10px; border: none; cursor: pointer; }
+    .btn-outline { background: transparent; border: 2px solid var(--text-main); color: var(--text-main); }
+    .code-block { background-color: var(--code-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; text-align: left; margin: 40px 0; font-family: monospace; font-size: 12px; overflow-x: auto; }
+    footer { padding: 40px 24px; text-align: center; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border-color); }
+</style>
+</head>
+<body>
+<div class="background-blob-1"></div>
+<div class="background-blob-2"></div>
+<header><div class="logo">AXIOM SYSTEMS</div><button class="theme-toggle" id="themeToggle">Light Mode</button></header>
+<main>
+    <h1>NOMAD-SCOUT PRO</h1>
+    <p class="subtitle">Inteligencia de fuente abierta (OSINT) 100% local. Sin huella. Sin rastreo. Sin dependencias.</p>
+    <div class="price">127€ <small>/ una vez · tuyo para siempre</small></div>
+    <div>
+        <button class="btn" id="buyBtn">💰 COMPRAR AHORA</button>
+        <a href="https://wa.me/34652607512" class="btn btn-outline">📱 WHATSAPP</a>
+    </div>
+    <div class="feature-grid">
+        <div class="feature-card"><i class="fa-solid fa-magnifying-glass"></i><h3>Scraping sigiloso</h3><p>Sin dejar rastro, sin logs</p></div>
+        <div class="feature-card"><i class="fa-solid fa-chart-pie"></i><h3>Análisis de tendencias</h3><p>Detección de patrones y anomalías</p></div>
+        <div class="feature-card"><i class="fa-solid fa-file-export"></i><h3>Reportes tácticos</h3><p>PDF, HTML, JSON automáticos</p></div>
+        <div class="feature-card"><i class="fa-solid fa-shield-halved"></i><h3>Sin telemetría</h3><p>Todo local, nadie lo sabe</p></div>
+        <div class="feature-card"><i class="fa-solid fa-clock"></i><h3>Monitoreo continuo</h3><p>Scraping programado automático</p></div>
+        <div class="feature-card"><i class="fa-solid fa-code"></i><h3>Código fuente</h3><p>Completo + ejemplos reales</p></div>
+    </div>
+    <div class="code-block">
+        <pre style="color: var(--accent-glow-2); margin:0;">
+// Ejemplo de uso
+import { NomadScout } from 'nomad-scout-pro';
+
+const scout = new NomadScout();
+await scout.scan('https://x.com/ManuelAxiom');
+const report = scout.generateReport('tactical');
+console.log(report);</pre>
+    </div>
+</main>
+<footer>© 2026 AXIOM SYSTEMS · SOBERANÍA TECNOLÓGICA</footer>
+<script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    toggle.addEventListener('click', () => {
+        const current = html.getAttribute('data-theme');
+        html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+        toggle.innerText = current === 'dark' ? 'Dark Mode' : 'Light Mode';
+    });
+    document.getElementById('buyBtn').addEventListener('click', () => {
+        alert("📲 Escríbeme por WhatsApp al +34 652607512 y te envío Nomad-Scout PRO.\n\nPrecio: 127€ por Bizum o transferencia.");
+    });
+</script>
+</body>
+</html>
